@@ -144,7 +144,7 @@ describe('API con MongoDB real y base temporal exclusiva', { concurrency: false 
     });
   }
   test('fallo de compensación bloquea nuevas operaciones standalone', async (t) => {
-    if (database.transactions) return; // Transaction rollback is exercised by the tests above.
+    if (database.transactions) { t.skip('Solo aplica al modo standalone; rollback transaccional probado por separado.'); return; }
     t.mock.method(Transaction, 'create', async () => { throw Error('Fallo controlado'); });
     t.mock.method(Account, 'updateOne', async () => { throw Error('Fallo compensación'); });
     await post('retiro', { cuentaId: a, monto: 1 }).expect(500);
@@ -153,7 +153,7 @@ describe('API con MongoDB real y base temporal exclusiva', { concurrency: false 
     await request(app).get('/api/health').expect(503);
   });
   test('resultado incierto de red bloquea standalone sin compensar a ciegas', async (t) => {
-    if (database.transactions) return;
+    if (database.transactions) { t.skip('Solo aplica al modo standalone.'); return; }
     t.mock.method(Transaction, 'create', async () => { throw Object.assign(Error('red'), { name: 'MongoNetworkError' }); });
     await post('retiro', { cuentaId: a, monto: 1 }).expect(500);
     assert.equal(database.halted, true); assert.equal(await balance(a), 9900);
