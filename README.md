@@ -2,7 +2,7 @@
 
 **Cuenta Clara** es una aplicación académica Full-Stack para consultar saldos, depositar, retirar, transferir entre cuentas y consultar movimientos. React actualiza saldo e historial después de cada operación, sin recargar la página.
 
-Repositorio: [luivmz/cuenta-bancaria-fullstack](https://github.com/luivmz/cuenta-bancaria-fullstack).
+Repositorio público publicado en `main`: [luivmz/cuenta-bancaria-fullstack](https://github.com/luivmz/cuenta-bancaria-fullstack).
 
 ## Stack y requisitos
 

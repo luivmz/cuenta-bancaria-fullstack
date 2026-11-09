@@ -21,8 +21,8 @@ Estados: pendiente, implementado (sin verificar), verificado, bloqueado. Solo ev
 - [x] Fase 17. Estado React. Verificado: useState/useEffect; refresh sin reload; doble envío y cambio de cuenta cubiertos por tests.
 - [x] Fase 18. QA. Verificado: docs/QA.md; QA visual 360/820/desktop, teclado y errores; audits 0/0; capturas reales.
 - [x] Fase 19. README. Verificado: README español con instalación, seed, API, arquitectura, replica set y portabilidad.
-- [ ] Fase 20. Git/GitHub. Evidencia: pendiente.
-- [ ] Fase 21. Verificación final. Evidencia: pendiente.
+- [x] Fase 20. Git/GitHub. Verificado: push de main exitoso a origin; HEAD local, origin/main y ls-remote coincidieron. API pública de GitHub confirma private=false y rama main. Publicación mediante Git y credenciales existentes; gh ausente, sin requerir autenticación humana.
+- [x] Fase 21. Verificación final. Verificado: npm ci reproducible, backend 75/75, frontend 21/21, integración replica set 50 pass/2 skips específicos, smoke 6/6, build sin warnings, audits 0/0, QA visual y docs completas; entorno local operativo y archivos generados ignorados; árbol limpio comprobado antes del cierre documental.
 
 ## Auditoría inicial
 Directorio vacío. Node 20.20.2, npm 10.8.2, Git 2.54.0, MongoDB 8.0.34, mongosh 2.14.0, macOS ARM64. Homebrew registra mongodb-community@8.0 iniciado. Configuración local sin replication; conexión bloqueada por sandbox (EPERM). gh ausente. git init rechazado al escribir .git. No se modificó MongoDB del sistema.
@@ -32,3 +32,6 @@ Se conservaron los 17 archivos del backend y las carpetas vacías del frontend. 
 
 ## Verificación de portabilidad
 `npm ci` ejecutado con éxito en server y client. Tras reinstalar desde lockfiles: 75 tests backend, 21 tests frontend, build Vite de 25 módulos y auditorías 0/0; smoke real 6/6. El script de tests backend no depende de expansión de globs del shell. `.nvmrc` fija la versión de Node verificada. Capturas reales incorporadas a docs/capturas. Replica set temporal de QA detenido; servicio MongoDB original sin cambios.
+
+## Cierre
+Repositorio público existente conservado: https://github.com/luivmz/cuenta-bancaria-fullstack. Se publicó main sin force push ni conflictos. Se verificaron igualdad de hashes local/remoto y exclusión de .env, node_modules y dist. Todos los requisitos funcionales están implementados y verificados. Las limitaciones de standalone y del alcance de QA permanecen explícitas en README y docs/QA.md.

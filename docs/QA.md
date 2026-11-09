@@ -70,6 +70,6 @@ Loading, bloqueo de operación y error de refresco se validaron de manera automa
 - Smoke/seed y tests deben ejecutarse con MongoDB disponible. Smoke requiere además la API activa.
 - Windows/Linux: instrucciones portables, sin ejecución en esos sistemas.
 
-## Pendientes de entrega
+## Cierre de entrega
 
-Instalación reproducible comprobada con `npm ci` en ambos proyectos: exit 0; después se repitieron 75 tests backend, 21 tests frontend, build y audits con los resultados de la tabla. Smoke real volvió a pasar 6/6. El replica set temporal de QA se detuvo al terminar; el servicio MongoDB original permanece activo. La publicación y el estado Git se registran al cerrar PLAN.md; no se considera publicación aprobada hasta verificar push y coincidencia entre HEAD y origin/main.
+Instalación reproducible comprobada con `npm ci` en ambos proyectos: exit 0; después se repitieron 75 tests backend, 21 tests frontend, build y audits con los resultados de la tabla. Smoke real volvió a pasar 6/6. El replica set temporal de QA se detuvo al terminar; el servicio MongoDB original permanece activo. Push de `main` completado a https://github.com/luivmz/cuenta-bancaria-fullstack sin force push. La API pública de GitHub confirmó `private=false` y `default_branch=main`; HEAD local, origin/main y ls-remote coincidieron. Se comprobó árbol limpio y exclusión de .env, node_modules y dist. GitHub CLI no estaba instalado; se publicó con Git y las credenciales existentes. No quedan pendientes funcionales; las limitaciones de alcance se detallan arriba.
