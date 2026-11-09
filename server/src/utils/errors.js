@@ -5,5 +5,6 @@ export class AppError extends Error {
     this.code = code;
   }
 }
-export const invalid = (message) => new AppError(400, 'INVALID_INPUT', message);
-export const notFound = () => new AppError(404, 'ACCOUNT_NOT_FOUND', 'La cuenta no existe.');
+export const invalid = (message) => new AppError(400, "INVALID_INPUT", message);
+export const notFound = () =>
+  new AppError(404, "ACCOUNT_NOT_FOUND", "La cuenta no existe.");

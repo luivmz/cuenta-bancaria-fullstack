@@ -4,8 +4,14 @@ export function createMutex() {
   return async function exclusive(task) {
     const previous = tail;
     let release;
-    tail = new Promise((resolve) => { release = resolve; });
+    tail = new Promise((resolve) => {
+      release = resolve;
+    });
     await previous;
-    try { return await task(); } finally { release(); }
+    try {
+      return await task();
+    } finally {
+      release();
+    }
   };
 }
